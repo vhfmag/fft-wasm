@@ -113,7 +113,6 @@ const App = () => {
 				data={{
 					datasets: [
 						{
-							fill: false,
 							label: "FFT",
 							data: [...ffted].map(x => x ** 2),
 							yAxisID: "y-axis",
