@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel src/index.html",
-    "build:netlify": "curl https://git.io/fxm5j -sSLf | bash && yarn build",
+    "build:netlify": "./netlify-wasm.sh | bash && yarn build",
     "build": "parcel build src/index.html"
   },
   "devDependencies": {
