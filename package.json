@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel src/index.html",
-    "build:netlify": "./netlify-wasm.sh && yarn build",
+    "build:netlify": "./netlify-wasm.sh && source ~/.cargo/env && yarn build",
     "build": "parcel build src/index.html"
   },
   "devDependencies": {
