@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Victor Magalhães <victorhfmag@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@types/react": "^16.8.7",
