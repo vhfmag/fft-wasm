@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render } from "react-dom";
-import { fromEvent, from } from "rxjs";
-import { map, flatMap, takeUntil, bufferCount, sample } from "rxjs/operators";
+import { fromEvent, from, of } from "rxjs";
+import { flatMap, takeUntil, bufferCount, catchError, map } from "rxjs/operators";
 import { useObservable } from "rxjs-hooks";
 import { ProcessorName, processors, processorOptions } from "./processor";
 import { Select } from "./select";
@@ -29,7 +29,6 @@ function mediaStreamToObservable(e: MediaStream) {
 	);
 
 	volume.connect(recorder);
-	doneStream.forEach(() => console.error("wut"));
 
 	return stream;
 }
@@ -40,16 +39,30 @@ const App = () => {
 	const [processorName, setProcessorName] = React.useState<ProcessorName>("wasm");
 	const lastDurations = React.useRef<number[]>([]);
 
-	let value = useObservable(() => {
-		return from(navigator.mediaDevices.getUserMedia({ audio: true })).pipe(
-			flatMap(userMedia =>
-				mediaStreamToObservable(userMedia).pipe(map(arr => ({ active: true, value: arr }))),
-			),
-		);
-	});
+	let value = useObservable(() =>
+		from(navigator.mediaDevices.getUserMedia({ audio: true })).pipe(
+			flatMap(mediaStreamToObservable),
+			map(value => ({ active: true, failed: false as const, error: null, value })),
+			catchError(error => {
+				console.error(error);
+				return of({ active: true, failed: true as const, error, value: null });
+			}),
+		),
+	);
 
 	if (!value) {
-		return <h1>Y no let me?</h1>;
+		return <h1>Pls let me</h1>;
+	} else if (value.failed) {
+		return (
+			<div>
+				<h1>Whoops</h1>
+				<p>
+					{value.error instanceof Error
+						? value.error.message
+						: JSON.stringify(value.error)}
+				</p>
+			</div>
+		);
 	}
 
 	const processor = processors[processorName];
