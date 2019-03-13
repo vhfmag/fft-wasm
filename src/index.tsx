@@ -78,6 +78,8 @@ const App = () => {
 				options={processorOptions}
 			/>
 			<br />
+			{`${lastDurations.current.reduce((a, b) => a + b) / length} milliseconds per run`}
+			<br />
 			<Line
 				options={{
 					scales: {
@@ -107,8 +109,6 @@ const App = () => {
 					],
 				}}
 			/>
-			<br />
-			{`${lastDurations.current.reduce((a, b) => a + b) / length} milliseconds per run`}
 		</div>
 	);
 };
