@@ -91,6 +91,7 @@ const App = () => {
 			<br />
 			{`${lastDurations.current.reduce((a, b) => a + b) / length} milliseconds per run`}
 			<br />
+			<div style={{ width: "100vw", maxWidth: "500px" }}>
 			<Line
 				options={{
 					scales: {
@@ -120,6 +121,7 @@ const App = () => {
 					],
 				}}
 			/>
+		</div>
 		</div>
 	);
 };
