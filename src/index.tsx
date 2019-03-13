@@ -13,10 +13,7 @@ const bufferSize = 4096;
 
 function mediaStreamToObservable(e: MediaStream) {
 	const context = new AudioContext();
-	const volume = context.createGain();
 	const audioInput = context.createMediaStreamSource(e);
-
-	audioInput.connect(volume);
 
 	const recorder = context.createScriptProcessor(sampleRate, 2, 1);
 	const audioTrack = e.getTracks()[0];
@@ -28,7 +25,8 @@ function mediaStreamToObservable(e: MediaStream) {
 		takeUntil(doneStream),
 	);
 
-	volume.connect(recorder);
+	audioInput.connect(recorder);
+	recorder.connect(context.destination);
 
 	return stream;
 }
