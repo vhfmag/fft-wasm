@@ -1,0 +1,27 @@
+{
+  "name": "fft-wasm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Victor Magalhães <victorhfmag@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@types/react": "^16.8.7",
+    "@types/react-dom": "^16.8.2",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
+    "eslint": "^5.15.1",
+    "parcel-bundler": "^1.12.1",
+    "parcel-plugin-wasm.rs": "^1.2.8",
+    "prettier": "^1.16.4",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "chart.js": "^2.7.3",
+    "react": "^16.8.4",
+    "react-chartjs-2": "^2.7.4",
+    "react-dom": "^16.8.4",
+    "rxjs": "^6.4.0",
+    "rxjs-hooks": "^0.4.0"
+  }
+}

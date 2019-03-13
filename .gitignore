@@ -1,0 +1,9 @@
+node_modules
+.cache
+dist
+target/
+crate/target
+crate/bin
+crate/pkg
+**/*.rs.bk
+*.log

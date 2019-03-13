@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"sourceMap": true,
+		"noImplicitAny": true,
+		"module": "es6",
+		"target": "es2018",
+		"allowJs": true,
+		"checkJs": true,
+		"jsx": "react",
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"esModuleInterop": true,
+		"lib": ["dom", "esnext"],
+		"strict": true,
+		"moduleResolution": "node",
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"paths": {
+			"*/Cargo.toml": ["*/pkg"]
+		}
+	},
+	"include": ["./src/**/*"],	
+}

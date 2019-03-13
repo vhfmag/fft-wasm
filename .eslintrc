@@ -1,0 +1,10 @@
+{
+    "ecmaFeatures": {
+        "modules": true,
+        "jsx": true
+    },
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+    "rules": {
+    }
+}
