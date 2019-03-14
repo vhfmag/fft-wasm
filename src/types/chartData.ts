@@ -1,4 +1,4 @@
-import { Option } from "../select";
+import { Option } from "../components/select";
 
 export type ChartData = "fft" | "raw";
 export type ChartDataMap = Record<ChartData, number[]>;

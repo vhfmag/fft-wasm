@@ -1,4 +1,4 @@
-import { Option } from "../select";
+import { Option } from "../components/select";
 import WasmFFT from "../../crate/Cargo.toml";
 import { fft } from "../fft";
 

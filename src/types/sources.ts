@@ -1,4 +1,4 @@
-import { Option } from "../select";
+import { Option } from "../components/select";
 
 export type Source = "microphone" | "sine";
 export type SourceLabels = Record<Source, string>;
