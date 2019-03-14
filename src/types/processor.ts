@@ -1,6 +1,6 @@
-import { Option } from "./select";
-import WasmFFT from "../crate/Cargo.toml";
-import { fft } from "./fft";
+import { Option } from "../select";
+import WasmFFT from "../../crate/Cargo.toml";
+import { fft } from "../fft";
 
 export type Processor = (ns: number[] | Float64Array) => Float64Array;
 
